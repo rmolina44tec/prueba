@@ -1,0 +1,119 @@
+$date
+	Thu Mar 20 05:35:03 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module mux $end
+$var wire 4 ! out [3:0] $end
+$var reg 4 " A [3:0] $end
+$var reg 4 # B [3:0] $end
+$var reg 4 $ C [3:0] $end
+$var reg 4 % D [3:0] $end
+$var reg 1 & en $end
+$var reg 2 ' sel [1:0] $end
+$scope module mux $end
+$var wire 4 ( A [3:0] $end
+$var wire 4 ) B [3:0] $end
+$var wire 4 * C [3:0] $end
+$var wire 4 + D [3:0] $end
+$var wire 1 & en $end
+$var wire 2 , sel [1:0] $end
+$var reg 4 - out [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0zzz -
+b0 ,
+b1001 +
+b101 *
+b11 )
+b100 (
+b0 '
+0&
+b1001 %
+b101 $
+b11 #
+b100 "
+b0zzz !
+$end
+#20
+b1 '
+b1 ,
+#40
+b10 '
+b10 ,
+#60
+b11 '
+b11 ,
+#80
+b100 !
+b100 -
+b0 '
+b0 ,
+1&
+#100
+b11 !
+b11 -
+b1 '
+b1 ,
+#120
+b101 !
+b101 -
+b10 '
+b10 ,
+#140
+b1001 !
+b1001 -
+b11 '
+b11 ,
+#160
+b0zzz !
+b0zzz -
+b0 '
+b0 ,
+0&
+#180
+b1 '
+b1 ,
+#200
+b10 '
+b10 ,
+#220
+b11 '
+b11 ,
+#240
+b100 !
+b100 -
+b0 '
+b0 ,
+1&
+#260
+b11 !
+b11 -
+b1 '
+b1 ,
+#280
+b101 !
+b101 -
+b10 '
+b10 ,
+#300
+b1001 !
+b1001 -
+b11 '
+b11 ,
+#320
+b0zzz !
+b0zzz -
+b0 '
+b0 ,
+0&

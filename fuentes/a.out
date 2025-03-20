@@ -1,0 +1,97 @@
+#! /usr/local/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/local/lib/ivl/system.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/local/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/local/lib/ivl/va_math.vpi";
+:vpi_module "/usr/local/lib/ivl/v2009.vpi";
+S_0x1581b80 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x15813c0 .scope module, "decoder_test" "decoder_test" 3 1;
+ .timescale 0 0;
+v0x15a8990_0 .var "a", 0 0;
+v0x15a8a50_0 .var "b", 0 0;
+v0x15a8b20_0 .net "d0", 0 0, L_0x15a9010;  1 drivers
+v0x15a8c20_0 .net "d1", 0 0, L_0x15a91e0;  1 drivers
+v0x15a8cf0_0 .net "d2", 0 0, L_0x15a93f0;  1 drivers
+v0x15a8d90_0 .net "d3", 0 0, L_0x15a94f0;  1 drivers
+S_0x1582840 .scope task, "display" "display" 3 44, 3 44 0, S_0x15813c0;
+ .timescale 0 0;
+TD_decoder_test.display ;
+    %delay 1, 0;
+    %vpi_call/w 3 45 "$display", "a:%0b, b:%0b ,d0:%0b,d1:%0b,d2:%0b,d3:%0b", v0x15a8990_0, v0x15a8a50_0, v0x15a8b20_0, v0x15a8c20_0, v0x15a8cf0_0, v0x15a8d90_0 {0 0 0};
+    %end;
+S_0x1582340 .scope module, "l1" "decoder" 3 4, 4 1 0, S_0x15813c0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "d0";
+    .port_info 1 /OUTPUT 1 "d1";
+    .port_info 2 /OUTPUT 1 "d2";
+    .port_info 3 /OUTPUT 1 "d3";
+    .port_info 4 /INPUT 1 "a";
+    .port_info 5 /INPUT 1 "b";
+L_0x15a8e60 .functor NOT 1, v0x15a8990_0, C4<0>, C4<0>, C4<0>;
+L_0x15a8f50 .functor NOT 1, v0x15a8a50_0, C4<0>, C4<0>, C4<0>;
+L_0x15a9010 .functor AND 1, L_0x15a8e60, L_0x15a8f50, C4<1>, C4<1>;
+L_0x15a9170 .functor NOT 1, v0x15a8990_0, C4<0>, C4<0>, C4<0>;
+L_0x15a91e0 .functor AND 1, L_0x15a9170, v0x15a8a50_0, C4<1>, C4<1>;
+L_0x15a92f0 .functor NOT 1, v0x15a8a50_0, C4<0>, C4<0>, C4<0>;
+L_0x15a93f0 .functor AND 1, v0x15a8990_0, L_0x15a92f0, C4<1>, C4<1>;
+L_0x15a94f0 .functor AND 1, v0x15a8990_0, v0x15a8a50_0, C4<1>, C4<1>;
+v0x15929b0_0 .net *"_ivl_0", 0 0, L_0x15a8e60;  1 drivers
+v0x15a8080_0 .net *"_ivl_10", 0 0, L_0x15a92f0;  1 drivers
+v0x15a8160_0 .net *"_ivl_2", 0 0, L_0x15a8f50;  1 drivers
+v0x15a8250_0 .net *"_ivl_6", 0 0, L_0x15a9170;  1 drivers
+v0x15a8330_0 .net "a", 0 0, v0x15a8990_0;  1 drivers
+v0x15a8440_0 .net "b", 0 0, v0x15a8a50_0;  1 drivers
+v0x15a8500_0 .net "d0", 0 0, L_0x15a9010;  alias, 1 drivers
+v0x15a85c0_0 .net "d1", 0 0, L_0x15a91e0;  alias, 1 drivers
+v0x15a8680_0 .net "d2", 0 0, L_0x15a93f0;  alias, 1 drivers
+v0x15a87d0_0 .net "d3", 0 0, L_0x15a94f0;  alias, 1 drivers
+    .scope S_0x15813c0;
+T_1 ;
+    %vpi_call/w 3 7 "$dumpfile", "dump.vcd" {0 0 0};
+    %vpi_call/w 3 8 "$dumpvars", 32'sb00000000000000000000000000000001 {0 0 0};
+    %vpi_call/w 3 10 "$display", "Initial 00" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x15a8990_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x15a8a50_0, 0, 1;
+    %delay 1, 0;
+    %fork TD_decoder_test.display, S_0x1582840;
+    %join;
+    %vpi_call/w 3 18 "$display", "Initial 00" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x15a8990_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x15a8a50_0, 0, 1;
+    %delay 1, 0;
+    %fork TD_decoder_test.display, S_0x1582840;
+    %join;
+    %vpi_call/w 3 26 "$display", "Initial 00" {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x15a8990_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x15a8a50_0, 0, 1;
+    %delay 1, 0;
+    %fork TD_decoder_test.display, S_0x1582840;
+    %join;
+    %vpi_call/w 3 34 "$display", "Initial 00" {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x15a8990_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x15a8a50_0, 0, 1;
+    %delay 1, 0;
+    %fork TD_decoder_test.display, S_0x1582840;
+    %join;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "testbench.sv";
+    "design.sv";
